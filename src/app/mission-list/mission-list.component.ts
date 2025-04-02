@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-mission-list',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './mission-list.component.html',
-  styleUrl: './mission-list.component.css'
+  styleUrls: ['./mission-list.component.css']
 })
 export class MissionListComponent {
-
+  missionsList$;
+  constructor(public http: HttpClient){
+    this.missionsList$ = this.http.get<any[]>('https://api.spacexdata.com/v3/launches');
+  }
 }
