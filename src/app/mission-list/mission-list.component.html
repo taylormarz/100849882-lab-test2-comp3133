@@ -1,1 +1,22 @@
-<p>mission-list works!</p>
+<h1>Space X Mission List:</h1>
+<div id="missionlist-container">
+  <div *ngIf="missionsList$ | async as missions;">
+    <div *ngIf="missions.length === 0">
+      <p>No missions available.</p>
+    </div>
+    <div *ngFor="let mission of missions">
+      <div>
+        <p>Flight Number: {{ mission.flight_number }}</p>
+        <p>Mission Name: {{ mission.mission_name }}</p>
+        <p>Launch Year: {{ mission.launch_year }}</p>
+        <p>Details: {{ mission.details }}</p>
+        <p>Mission Patch: {{ mission.mission_patch_small }}</p>
+        <p>Rocket Name: {{ mission.rocket?.rocket_name }}</p>
+        <p>Rocket Type: {{ mission.rocket?.rocket_type }}</p>
+        <p>Article Link: {{ mission.links.article_link }}</p>
+        <p>Wikipedia Link: {{ mission.links.wikipedia }}</p>
+        <p>Video Link: {{ mission.links.video_link }}</p>
+        <p>========================================================================</p>
+    </div>
+  </div>
+</div>
