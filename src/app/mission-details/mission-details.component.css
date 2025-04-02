@@ -1,0 +1,62 @@
+body {
+	background-color: #0c1524;
+	margin: 0;
+	font-family: Arial, sans-serif;
+}
+  
+#mission-header {
+	color: white;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	font-size: 2rem;
+}
+
+.mission-details-card {
+	background-color: white;
+	width: 90%;
+	max-width: 600px;
+	margin: 0 auto 40px;
+	padding: 30px;
+	border-radius: 12px;
+}
+
+.mission-details-card h2 {
+	margin-bottom: 20px;
+	color: #0c1524;
+}
+
+.mission-details-card p {
+	font-size: 1rem;
+	margin: 10px 0;
+	color: #333;
+}
+
+
+.link-btn {
+	display: inline-block;
+	margin: 10px 8px 0 0;
+	padding: 10px 14px;
+	background-color: #007bff;
+	color: white;
+	text-decoration: none;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 0.95rem;
+	transition: background-color 0.2s ease;
+}
+
+.link-btn:hover {
+	background-color: #0056b3;
+}
+
+.back-btn {
+	margin-bottom: 20px;
+	background-color: #6c757d;
+}
+
+.back-btn:hover {
+	background-color: #5a6268;
+}
+  

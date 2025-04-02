@@ -29,8 +29,8 @@
           <div class="mission-body">
             <p><strong>Flight Number:</strong> {{ mission.flight_number }}</p>
             <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
-            <p><strong>Rocket Name:</strong> {{ mission.rocket?.rocket_name }}</p>
-            <p><strong>Rocket Type:</strong> {{ mission.rocket?.rocket_type }}</p>
+            <p><strong>Rocket Name:</strong> {{ mission.rocket.rocket_name }}</p>
+            <p><strong>Rocket Type:</strong> {{ mission.rocket.rocket_type }}</p>
             <p><strong>Details:</strong> {{ mission.details || 'No details available.' }}</p>
 
             <div class="mission-links">
@@ -38,6 +38,10 @@
               <a *ngIf="mission.links?.wikipedia" [href]="mission.links.wikipedia" target="_blank" class="link-btn">Wikipedia</a>
               <a *ngIf="mission.links?.video_link" [href]="mission.links.video_link" target="_blank" class="link-btn">Video</a>
             </div>
+
+            <button (click)="goToDetails(mission.flight_number)" class="link-btn">
+              View Details
+            </button>
           </div>
         </div>
       </div>

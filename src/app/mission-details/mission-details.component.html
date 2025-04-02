@@ -1,1 +1,34 @@
-<p>mission-details works!</p>
+<body>
+	<h1 id="mission-header">Space X Mission Details</h1>
+	<div class="mission-details-card" *ngIf="mission$ | async as mission">
+
+	<h2>{{ mission.mission_name }}</h2>
+	<p><strong>Flight Number:</strong> {{ mission.flight_number }}</p>
+	<p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
+	<p><strong>Launch Success:</strong> {{ mission.launch_success ? 'Yes' : 'No' }}</p>
+
+	<p *ngIf="mission.launch_failure_details">
+		<strong>Failure Reason:</strong> {{ mission.launch_failure_details.reason }}
+	</p>
+
+	<p><strong>Details:</strong> {{ mission.details || 'No additional info.' }}</p>
+
+	<h3>Rocket Info:</h3>
+	<p><strong>Name:</strong> {{ mission.rocket.rocket_name }}</p>
+	<p><strong>Type:</strong> {{ mission.rocket.rocket_type }}</p>
+	<p><strong>Core Serial:</strong> {{ mission.rocket.first_stage.cores[0].core_serial }}</p>
+	<p><strong>Payload ID:</strong> {{ mission.rocket.second_stage.payloads[0].payload_id }}</p>
+	<p><strong>Payload Type:</strong> {{ mission.rocket.second_stage.payloads[0].payload_type }}</p>
+	<p><strong>Orbit:</strong> {{ mission.rocket.second_stage.payloads[0].orbit }}</p>
+	
+	<h3>Launch Info:</h3>
+	<p><strong>Site:</strong> {{ mission.launch_site.site_name_long }}</p>
+	
+	<p><strong>Launch Date:</strong> {{ mission.launch_date_utc | date:'medium' }}</p>
+	<p *ngIf="mission.static_fire_date_utc">
+		<strong>Static Fire Date:</strong> {{ mission.static_fire_date_utc | date:'medium' }}
+	</p>
+
+	<button (click)="goBack()" class="link-btn back-btn">← Back to Mission List</button>
+	</div>
+</body>
