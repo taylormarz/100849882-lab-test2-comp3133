@@ -1,22 +1,46 @@
-<h1>Space X Mission List:</h1>
-<div id="missionlist-container">
-  <div *ngIf="missionsList$ | async as missions;">
-    <div *ngIf="missions.length === 0">
-      <p>No missions available.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1 id="mission-header">Space X Mission List:</h1>
+  </header>
+  <main>
+    <div *ngIf="missionsList$ | async as missions">
+      <div *ngIf="missions.length === 0">
+        <p>No missions available.</p>
+      </div>
+
+      <div *ngIf="missions.length > 0" class="mission-container">
+        <div *ngFor="let mission of missions" class="mission-card">
+          <div *ngIf="mission.links?.mission_patch" class="mission-patch">
+            <img [src]="mission.links.mission_patch" alt="{{ mission.mission_name }} mission patch" />
+          </div>
+
+          <div class="mission-header">
+            <h5 class="mission-title">{{ mission.mission_name }}</h5>
+          </div>
+
+          <div class="mission-body">
+            <p><strong>Flight Number:</strong> {{ mission.flight_number }}</p>
+            <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
+            <p><strong>Rocket Name:</strong> {{ mission.rocket?.rocket_name }}</p>
+            <p><strong>Rocket Type:</strong> {{ mission.rocket?.rocket_type }}</p>
+            <p><strong>Details:</strong> {{ mission.details || 'No details available.' }}</p>
+
+            <div class="mission-links">
+              <a *ngIf="mission.links?.article_link" [href]="mission.links.article_link" target="_blank" class="link-btn">Article</a>
+              <a *ngIf="mission.links?.wikipedia" [href]="mission.links.wikipedia" target="_blank" class="link-btn">Wikipedia</a>
+              <a *ngIf="mission.links?.video_link" [href]="mission.links.video_link" target="_blank" class="link-btn">Video</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div *ngFor="let mission of missions">
-      <div>
-        <p>Flight Number: {{ mission.flight_number }}</p>
-        <p>Mission Name: {{ mission.mission_name }}</p>
-        <p>Launch Year: {{ mission.launch_year }}</p>
-        <p>Details: {{ mission.details }}</p>
-        <p>Mission Patch: {{ mission.mission_patch_small }}</p>
-        <p>Rocket Name: {{ mission.rocket?.rocket_name }}</p>
-        <p>Rocket Type: {{ mission.rocket?.rocket_type }}</p>
-        <p>Article Link: {{ mission.links.article_link }}</p>
-        <p>Wikipedia Link: {{ mission.links.wikipedia }}</p>
-        <p>Video Link: {{ mission.links.video_link }}</p>
-        <p>========================================================================</p>
-    </div>
-  </div>
-</div>
+  </main>
+</body>
+</html>

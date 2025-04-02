@@ -1,0 +1,78 @@
+body {
+	background-color: #0c1524;
+	margin: 0;
+	font-family: Arial, sans-serif;
+}
+
+#mission-header {
+	color: white;
+	text-align: center;
+	margin: 40px 0;
+}
+
+main {
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.mission-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.mission-card {
+	background-color: white;
+	width: 30%;
+	min-width: 250px;
+	padding: 20px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+.mission-patch img {
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+}
+
+.mission-title {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 28px;
+}
+
+.mission-body p {
+	margin: 5px 0;
+	font-size: 16px;
+}
+
+.mission-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 30px;
+	margin-bottom: 25px;
+}
+
+.link-btn {
+	display: inline-block;
+	background-color: #0c1524;
+	color: white;
+	padding: 8px 12px;
+	border-radius: 5px;
+	text-decoration: none;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.link-btn:hover {
+	background-color: #0056b3;
+}
