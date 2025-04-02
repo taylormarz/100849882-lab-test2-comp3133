@@ -9,6 +9,7 @@
   <header>
     <h1 id="mission-header">Space X Mission List:</h1>
   </header>
+  <app-missionfilter (yearSelected)="onYearSelected($event)"></app-missionfilter>
   <main>
     <div *ngIf="missionsList$ | async as missions">
       <div *ngIf="missions.length === 0">

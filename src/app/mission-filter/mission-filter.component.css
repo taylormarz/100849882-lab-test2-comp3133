@@ -1,0 +1,28 @@
+:host {
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+  }
+
+  label {
+	color: #ffffff;
+	font-size: 1.1rem;
+	margin-right: 10px;
+  }
+  
+  select {
+	padding: 8px 12px;
+	font-size: 1rem;
+	background-color: #ffffff;
+	color: #000000;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	outline: none;
+	transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  select:focus {
+	box-shadow: 0 0 5px #61dafb;
+  }
+  
